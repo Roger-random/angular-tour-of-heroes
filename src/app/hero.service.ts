@@ -80,4 +80,14 @@ export class HeroService {
       catchError(this.handleError<Hero>('addHero'))
     );
   }
+
+  /** DELETE: delete the hero from the server */
+  deleteHero(hero: Hero): Observable<Hero> {
+    const url = `${this.heroesUrl}/${hero.id}`;
+
+    return this.http.delete<Hero>(url, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted hero id=${hero.id}`)),
+      catchError(this.handleError<Hero>('deleteHero'))
+    );
+  }
 }
