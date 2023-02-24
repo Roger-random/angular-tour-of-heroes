@@ -1,13 +1,23 @@
 /* HeroSearch private styles */
+* {
+  text-align: center;
+  margin: auto;
+}
+
+#search-component {
+  padding: 1rem 0;
+  margin: 0.5rem 0;
+  background-color: #f8f8f8;
+}
 
 label {
   display: block;
   font-weight: bold;
   font-size: 1.2rem;
-  margin-top: 1rem;
   margin-bottom: .5rem;
 
 }
+
 input {
   padding: .5rem;
   width: 100%;
