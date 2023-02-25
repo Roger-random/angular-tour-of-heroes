@@ -22,3 +22,12 @@ button:disabled {
   color: #ccc;
   cursor: auto;
 }
+
+.herodetail {
+  text-align: center;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+}
