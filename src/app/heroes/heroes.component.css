@@ -1,17 +1,13 @@
 /* HeroesComponent's private CSS styles */
+h2 {
+  text-align: center;
+}
+
 .heroes {
-  margin: 0 0 2em 0;
+  margin: 0 auto 2em;
   list-style-type: none;
   padding: 0;
   width: 15em;
-}
-
-input {
-  display: block;
-  width: 100%;
-  padding: .5rem;
-  margin: 1rem 0;
-  box-sizing: border-box;
 }
 
 .heroes li {
@@ -62,17 +58,6 @@ input {
   border-radius: 4px 0 0 4px;
 }
 
-.add-button {
- padding: .5rem 1.5rem;
- font-size: 1rem;
- margin-bottom: 2rem;
-}
-
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
-}
-
 button.delete {
   position: absolute;
   left: 210px;
@@ -87,4 +72,29 @@ button.delete {
 button.delete:hover {
   background-color: #525252;
   color: white;
+}
+
+.addnew {
+  padding: 1rem 0;
+  margin: 0.5rem 0;
+  background-color: #f8f8f8;
+  text-align: center;
+}
+
+input {
+  display: block;
+  width: 80%;
+  padding: .5rem;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.add-button {
+ font-size: 1rem;
+ margin: 0.25rem;
+}
+
+.add-button:hover {
+  color: white;
+  background-color: #42545C;
 }
