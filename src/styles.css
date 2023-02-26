@@ -7,5 +7,10 @@ body {
   margin: 2em;
 }
 
+/* Workaround until I figure out why theme colors aren't showing up*/
+a:hover {
+  background-color: #ddd;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
