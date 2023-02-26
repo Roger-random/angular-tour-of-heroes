@@ -1,9 +1,10 @@
 <nav>
-  <h1>{{title}}</h1>
-  <div class="links">
+  <mat-toolbar color="warn">
+    <h1>{{title}}</h1>
+    <span class="spacer"></span>
     <a mat-stroked-button routerLink="/dashboard">Dashboard</a>
     <a mat-stroked-button routerLink="/heroes">Heroes</a>
-  </div>
+  </mat-toolbar>
 </nav>
 <router-outlet></router-outlet>
 <app-messages></app-messages>
