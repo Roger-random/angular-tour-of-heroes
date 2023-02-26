@@ -1,16 +1,3 @@
 /* Application-wide Styles */
-h2, h3 {
-  color: #444;
-  font-weight: lighter;
-}
-body {
-  margin: 2em;
-}
-
-/* Workaround until I figure out why theme colors aren't showing up*/
-a:hover {
-  background-color: #ddd;
-}
-
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

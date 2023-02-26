@@ -1,13 +1,11 @@
 /* MessagesComponent's private CSS styles */
-header {
-  background-color: #eee;
-  display: flex;
-  justify-content: space-between;
-}
-
 h2 {
   font-weight: lighter;
   margin: 0.25rem;
+}
+
+.spacer {
+  flex: 1 1 auto;
 }
 
 section div {

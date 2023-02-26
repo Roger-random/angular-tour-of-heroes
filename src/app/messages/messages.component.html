@@ -1,9 +1,12 @@
 <div *ngIf="messageService.messages.length">
   <header>
-    <h2>Messages</h2>
-    <button mat-stroked-button color="primary" aria-label="Clear messages" (click)="messageService.clear()">
-      <mat-icon>delete</mat-icon>
-    </button>
+    <mat-toolbar color="primary">
+      <h2>Messages</h2>
+      <span class="spacer"></span>
+      <button mat-mini-fab aria-label="Clear messages" (click)="messageService.clear()">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-toolbar>
   </header>
   <section>
     <div *ngFor='let message of messageService.messages'> {{message}} </div>

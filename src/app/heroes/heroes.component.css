@@ -88,13 +88,3 @@ input {
   box-sizing: border-box;
   margin: auto;
 }
-
-.add-button {
- font-size: 1rem;
- margin: 0.25rem;
-}
-
-.add-button:hover {
-  color: white;
-  background-color: #42545C;
-}
