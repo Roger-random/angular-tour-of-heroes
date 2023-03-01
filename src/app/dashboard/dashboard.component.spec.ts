@@ -1,6 +1,12 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatInputModule } from '@angular/material/input';
+
 import { DashboardComponent } from './dashboard.component';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
 
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
@@ -8,7 +14,16 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DashboardComponent ]
+      imports: [
+        BrowserAnimationsModule,
+        HttpClientModule,
+        MatAutocompleteModule,
+        MatInputModule,
+      ],
+      declarations: [
+        DashboardComponent,
+        HeroSearchComponent,
+      ]
     })
     .compileComponents();
 
