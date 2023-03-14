@@ -1,8 +1,5 @@
-// Angular Core
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
 // Angular Test Support
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController, TestRequest } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 // Application objects under test
@@ -13,10 +10,13 @@ import { HeroService } from './hero.service';
 import { MessageService } from './message.service';
 
 describe('HeroService', () => {
-  let httpClient: HttpClient;
+  const expectedHeroes: Hero[] =
+    [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
+
   let httpTestingController: HttpTestingController;
   let messageService: MessageService;
   let heroService: HeroService;
+  let req : TestRequest;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -25,7 +25,6 @@ describe('HeroService', () => {
       ],
     }).compileComponents();
 
-    httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
     messageService = TestBed.inject(MessageService);
     heroService = TestBed.inject(HeroService);
@@ -41,9 +40,6 @@ describe('HeroService', () => {
   });
 
   it('should return expected heroes (HttpClient called once)', (done: DoneFn) => {
-    const expectedHeroes: Hero[] =
-      [{ id: 1, name: 'A' }, { id: 2, name: 'B' }];
-
     heroService.getHeroes().subscribe({
       next: heroes => {
         expect(heroes)
@@ -54,10 +50,8 @@ describe('HeroService', () => {
       error: done.fail
     });
 
-    const req = httpTestingController.expectOne('api/heroes');
-
+    req = httpTestingController.expectOne('api/heroes');
     expect(req.request.method).withContext('HTTP method').toEqual('GET');
-
     req.flush(expectedHeroes);
   });
 
@@ -74,10 +68,8 @@ describe('HeroService', () => {
       }
     });
 
-    const req = httpTestingController.expectOne('api/heroes');
-
+    req = httpTestingController.expectOne('api/heroes');
     expect(req.request.method).withContext('HTTP method').toEqual('GET');
-
     req.flush('test 404 error', {status: 404, statusText: 'Not Found'})
   });
 });
