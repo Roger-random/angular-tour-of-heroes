@@ -13,4 +13,12 @@ describe('InMemoryDataService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('generate default ID 11 for empty list', () => {
+    expect(service.genId([])).toEqual(11);
+  });
+
+  it('generate ID 21 for hero list', () => {
+    expect(service.genId(service.createDb().heroes)).toEqual(21);
+  });
 });
