@@ -9,7 +9,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
 import { HeroSearchComponent } from './hero-search.component';
-import { HeroesComponent } from '../heroes/heroes.component';
 import { HeroService } from '../hero.service';
 import { Hero } from '../hero';
 
