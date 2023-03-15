@@ -60,7 +60,7 @@ describe('HeroSearchComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('search returns empty Heroes', fakeAsync((done: DoneFn) => {
+  it('search returns select Heroes', fakeAsync((done: DoneFn) => {
     let componentHeroes: Hero[] = [];
 
     component.heroes$.subscribe({
