@@ -166,6 +166,26 @@ describe('HeroService', () => {
     req.flush(expectedHeroes);
   });
 
+  it('searchHeroes() HTTP GET with no search hits', (done: DoneFn) => {
+    const term = 'santa'; // search term
+
+    heroService.searchHeroes(term).subscribe({
+      next: heroes => {
+        expect(heroes)
+          .withContext('get expected hero list')
+          .toEqual([]);
+        done();
+      },
+      error: error => {
+        done.fail;
+      }
+    });
+
+    req = httpTestingController.expectOne(`${heroesUrl}/?name=${term}`);
+    expect(req.request.method).withContext('HTTP method').toEqual('GET');
+    req.flush([]);
+  });
+
   it('searchHeroes() HTTP GET with no search term', (done: DoneFn) => {
     const term = '   '; // whitespace search term
 
