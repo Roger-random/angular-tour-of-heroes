@@ -31,6 +31,11 @@ class MockHeroService {
   }
 }
 
+function getHTMLElement(fixture: ComponentFixture<DashboardComponent>) : HTMLElement {
+  expect(fixture.nativeElement instanceof HTMLElement).withContext('dashboard should be HTMLElement').toBeTruthy();
+  return fixture.nativeElement as HTMLElement;
+}
+
 describe('DashboardComponent', () => {
   let component: DashboardComponent;
   let fixture: ComponentFixture<DashboardComponent>;
@@ -70,5 +75,37 @@ describe('DashboardComponent', () => {
 
   it('retrieve hero slice 1-5 on startup', () => {
     expect(component.heroes).toEqual(heroes.slice(1, 5));
+  });
+
+  it('should display heading', () => {
+    const dashboardElement: HTMLElement = getHTMLElement(fixture);
+
+    const header = dashboardElement.querySelector('h2');
+    expect(header?.textContent).toEqual('Top Heroes');
+  });
+
+  it('should show list of 4 heroes', () => {
+    const dashboardElement: HTMLElement = getHTMLElement(fixture);
+
+    const heroLinks = dashboardElement.querySelectorAll('a');
+    expect(heroLinks.length).toBe(4);
+  });
+
+  it('first hero link should have matching name and href', () => {
+    const dashboardElement: HTMLElement = getHTMLElement(fixture);
+
+    const heroLinks = dashboardElement.querySelectorAll('a');
+    const firstHero = heroLinks.item(0);
+
+    expect(firstHero.textContent?.trim()).toEqual('Bombasto');
+    expect(firstHero.pathname).toEqual('/detail/13');
+  });
+
+  it('should host search', () => {
+    const dashboardElement: HTMLElement = getHTMLElement(fixture);
+
+    // This test cares only that search component hasn't gone missing.
+    // Functionality to be tested by search component's own unit test.
+    expect(dashboardElement.querySelector('app-hero-search')).withContext('find instance of app-hero-search').toBeTruthy();
   });
 });

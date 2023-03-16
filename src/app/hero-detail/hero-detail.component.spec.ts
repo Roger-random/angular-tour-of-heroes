@@ -21,6 +21,11 @@ class MockHeroService {
   }
 }
 
+function getHTMLElement(fixture: ComponentFixture<HeroDetailComponent>) : HTMLElement {
+  expect(fixture.nativeElement instanceof HTMLElement).withContext('hero detail should be HTMLElement').toBeTruthy();
+  return fixture.nativeElement as HTMLElement;
+}
+
 describe('HeroDetailComponent', () => {
   const placeholderHero: Hero =
     { id: 1, name: 'A' };
@@ -60,5 +65,26 @@ describe('HeroDetailComponent', () => {
   it('should save', async () => {
     component.save();
     expect(component).toBeTruthy();
+  });
+
+  it('should display heading', () => {
+    const heroDetailElement: HTMLElement = getHTMLElement(fixture);
+
+    const header = heroDetailElement.querySelector('h2');
+    expect(header?.textContent).toEqual('CAPTAIN PLACEHOLDER Details');
+  });
+
+  it('should have text input for new name', () => {
+    const heroDetailElement: HTMLElement = getHTMLElement(fixture);
+
+    const input = heroDetailElement.querySelector('input');
+    expect(input?.id).toEqual('hero-name');
+  });
+
+  it('should have two buttons', () => {
+    const heroDetailElement: HTMLElement = getHTMLElement(fixture);
+
+    const buttons = heroDetailElement.querySelectorAll('button');
+    expect(buttons.length).toEqual(2);
   });
 });

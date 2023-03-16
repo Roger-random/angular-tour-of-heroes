@@ -24,6 +24,11 @@ class MockHeroService {
   }
 }
 
+function getHTMLElement(fixture: ComponentFixture<HeroSearchComponent>) : HTMLElement {
+  expect(fixture.nativeElement instanceof HTMLElement).withContext('hero search should be HTMLElement').toBeTruthy();
+  return fixture.nativeElement as HTMLElement;
+}
+
 describe('HeroSearchComponent', () => {
   let component: HeroSearchComponent;
   let fixture: ComponentFixture<HeroSearchComponent>;
@@ -82,4 +87,11 @@ describe('HeroSearchComponent', () => {
       expect(componentHeroes).toEqual(batSuperMan);
     });
   }));
+
+  it('should have text input for search', () => {
+    const heroSearchElement: HTMLElement = getHTMLElement(fixture);
+
+    const input = heroSearchElement.querySelector('input');
+    expect(input?.id).toEqual('search-box');
+  });
 });
