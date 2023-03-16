@@ -25,6 +25,8 @@ already set up by Angular application boilerplate generator. Making
 * [Observables and RxJS in Angular](https://angular.io/guide/observables)
 * [Testing HTTP requests](https://angular.io/guide/http#testing-http-requests)
 
-Initial focus was on getting code coverage numbers up, setting up imports
-properly and mostly mocking HeroService before going into component interaction
-and router testing.
+I was able to increase code coverage to 100%, which is great but doesn't test
+functionality outside of code. For example, I only have partial test coverage
+to verify important controls haven't disappeared from the HTML template. There
+is more Angular testing I can do (verify router behavior, etc.) I was ready to
+move on to another topic, though, so unit tests were left incomplete.
